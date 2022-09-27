@@ -113,12 +113,12 @@ function deleteStatus(req, res, next) {
 
 //handlers
 
-function list(req, res, next) => {
+function list(req, res, next){
   res.json({ data: orders })
 }
 
 
-function create(req, res, next) => {
+function create(req, res, next){
   const data = req.body.data || {}
   const newOrder = {
      ...data, 
@@ -129,12 +129,12 @@ function create(req, res, next) => {
 }
 
 
-function read(req, res, next) => {
+function read(req, res, next){
   res.json({ data: res.locals.order })
 }
 
 
-function update(req, res, next) => {
+function update(req, res, next){
   const order = res.locals.order
   const { data: { deliverTo, mobileNumber, status, dishes } = {} } = req.body
   const newOrder = {
@@ -149,7 +149,7 @@ function update(req, res, next) => {
 }
 
 
-function destroy(req, res, next) => {
+function destroy(req, res, next){
   const { orderId } = req.params
   const i = orders.findIndex((order) => order.id === Number(orderId))
   const deletedOrders = orders.splice(i, 1);
