@@ -66,17 +66,17 @@ function matchIds(req, res, next) {
 
 //handlers
 
-const list = (req, res, next) => {
+function list(req, res, next) => {
   res.json({ data: dishes })
 }
 
 
-const read = (req, res, next) => {
+function read(req, res, next) => {
   res.json({ data: res.locals.dish })
 }
 
 
-const create = (req, res, next) => {
+function create(req, res, next) => {
   const data = req.body.data || {}
   const newDish = {
      ...data, 
@@ -87,7 +87,7 @@ const create = (req, res, next) => {
 }
 
 
-const update = (req, res, next) => {
+function update(req, res, next) => {
   const dish = res.locals.dish
   const { data: { name, description, image_url, price } = {} } = req.body
   const newDish = {
